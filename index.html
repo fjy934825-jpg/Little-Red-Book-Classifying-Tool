@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#d83945" />
+    <title>小红书内容整理台</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="top-panel">
+        <div class="brand">
+          <span class="brand-mark">红</span>
+          <div>
+            <h1>小红书内容整理台</h1>
+            <p>分类、摘要、搜索和跳转</p>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <label class="file-button" for="fileInput">导入</label>
+          <input id="fileInput" type="file" accept=".json,.csv,.txt,.md" />
+          <button id="loadSample" class="ghost-button" type="button">示例</button>
+          <button id="exportJson" class="primary-button" type="button">导出</button>
+        </div>
+      </section>
+
+      <section class="search-panel">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="搜索标题、摘要、作者、关键词或链接" />
+        </div>
+        <div class="filter-row">
+          <select id="categoryFilter" aria-label="分类筛选"></select>
+          <select id="statusFilter" aria-label="来源筛选">
+            <option value="all">全部来源</option>
+            <option value="收藏">收藏</option>
+            <option value="点赞">点赞</option>
+            <option value="笔记">笔记</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="统计">
+        <div>
+          <span id="totalCount">0</span>
+          <p>总内容</p>
+        </div>
+        <div>
+          <span id="categoryCount">0</span>
+          <p>主题数</p>
+        </div>
+        <div>
+          <span id="linkCount">0</span>
+          <p>可跳转</p>
+        </div>
+        <div>
+          <span id="visibleCount">0</span>
+          <p>当前结果</p>
+        </div>
+      </section>
+
+      <nav id="categoryTabs" class="category-tabs" aria-label="主题分类"></nav>
+
+      <section id="notesView" class="view active">
+        <div id="notesList" class="notes-list"></div>
+      </section>
+
+      <section id="detailView" class="view">
+        <aside id="detailPane" class="detail-pane">
+          <div class="empty-detail">
+            <span aria-hidden="true">⌁</span>
+            <p>选择一篇内容查看核心信息</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="rulesView" class="view">
+        <div class="rules-panel">
+          <div class="section-title">
+            <h2>分类规则</h2>
+            <button id="addRule" class="icon-button" type="button" aria-label="新增分类">+</button>
+          </div>
+          <div id="rulesList" class="rules-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="手机导航">
+      <button class="bottom-tab active" type="button" data-view="notesView">列表</button>
+      <button class="bottom-tab" type="button" data-view="detailView">详情</button>
+      <button class="bottom-tab" type="button" data-view="rulesView">规则</button>
+    </nav>
+
+    <template id="ruleTemplate">
+      <div class="rule-row">
+        <input class="rule-name" aria-label="分类名称" />
+        <textarea class="rule-keywords" aria-label="关键词"></textarea>
+      </div>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "小红书内容整理台",
+  "short_name": "内容整理台",
+  "description": "按主题整理小红书收藏、点赞和笔记，支持摘要、搜索和跳转链接。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2f5",
+  "theme_color": "#d83945",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
