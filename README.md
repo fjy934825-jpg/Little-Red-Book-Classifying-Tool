@@ -98,6 +98,44 @@ https://fjy934825-jpg.github.io/Little-Red-Book-Classifying-Tool/index.html?app=
 
 如果手机浏览器不允许自动读取剪贴板，就手动粘贴即可。
 
+## 尝试从链接自动抓正文
+
+当前版本新增了一个抓取后端原型：`cloudflare-worker.js`。
+
+它的工作方式是：
+
+```text
+手机页面粘贴小红书链接
+-> 调用 Cloudflare Worker
+-> Worker 尝试读取公开页面标题、描述和可见文本
+-> 前端用抓到的内容生成分类、摘要和要点
+```
+
+部署步骤：
+
+1. 打开 Cloudflare Workers
+2. 新建一个 Worker
+3. 把 `cloudflare-worker.js` 里的内容复制进去
+4. 部署后得到一个地址，例如：
+
+```text
+https://你的-worker.workers.dev
+```
+
+5. 回到手机工具页面
+6. 打开底部“分类”
+7. 在“抓取接口”里填写：
+
+```text
+https://你的-worker.workers.dev/fetch
+```
+
+8. 点击“保存接口”
+
+之后再粘贴小红书链接时，工具会优先尝试从链接抓正文。
+
+注意：Cloudflare Worker 只能抓公开页面文本。小红书评论通常需要登录态或浏览器自动化后端，所以这个原型不保证能抓到评论。如果公开页面没有正文，也会退回使用分享文案。
+
 ## 上传文件导入
 
 也可以点击“导入”，选择一个文本或 JSON 文件。
