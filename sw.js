@@ -1,4 +1,4 @@
-const CACHE_NAME = "xhs-content-organizer-v15";
+const CACHE_NAME = "xhs-content-organizer-v16";
 const ASSETS = ["./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
