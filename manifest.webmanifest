@@ -2,7 +2,7 @@
   "name": "小红书内容整理台",
   "short_name": "内容整理台",
   "description": "粘贴链接和有用评论后自动分类、摘要、提取要点，支持搜索和跳转。",
-  "start_url": "./index.html?app=v14",
+  "start_url": "./index.html?app=v15",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f8fa",
